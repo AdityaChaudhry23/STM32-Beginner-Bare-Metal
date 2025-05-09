@@ -180,3 +180,9 @@ java.lang.NullPointerException: Cannot invoke "org.eclipse.swt.widgets.Shell.set
 
 !ENTRY org.eclipse.cdt.core 1 0 2025-05-09 01:07:19.253
 !MESSAGE Indexed '2_gpio_output' (3 sources, 62 headers) in 0.443 sec: 3,017 declarations; 5,060 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.025%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-05-09 01:30:32.963
+!MESSAGE Indexed '3_gpio_bsrr' (4 sources, 62 headers) in 0.322 sec: 3,021 declarations; 5,118 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.025%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2025-05-09 01:36:30.725
+!MESSAGE Indexed '4_gpio_input' (3 sources, 60 headers) in 0.402 sec: 2,603 declarations; 3,697 references; 3 unresolved inclusions; 30 syntax errors; 528 unresolved names (7.7%)
