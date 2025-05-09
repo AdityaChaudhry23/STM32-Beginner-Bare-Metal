@@ -1,0 +1,51 @@
+#include<stdint.h>
+#define PERIPH_BASE			(0x40000000UL) // 0x4000 0000
+#define AHB1_PERIPH_OFFSET 	(0x00020000UL) // 0x0002 0000
+#define AHB1_PERIPH_BASE 	(PERIPH_BASE + AHB1_PERIPH_OFFSET) // 0x4002 0000
+
+#define GPIOA_OFFSET 		(0x00000000UL) // 0x0000 0000
+
+#define GPIOA_BASE			(AHB1_PERIPH_BASE + GPIOA_OFFSET) // 0x4002 0000
+#define RCC_OFFSET 			(0x00003800UL) // 0x0000 3800
+#define RCC_BASE 			(AHB1_PERIPH_BASE + RCC_OFFSET) // 0x4002 3800
+
+#define GPIOAEN 			(1U<<0) // 0b 0000 0000 0000 0000 0000 0000 0000 0001 (Set Bit 0 to 1)
+
+#define PIN5				(1U<<5)
+#define LED_PIN 			 PIN5
+
+
+typedef struct{
+	volatile uint32_t DUMMY[12];
+	volatile uint32_t AHB1ENR;
+} RCC_Typedef;
+
+typedef struct{
+	volatile uint32_t MODER;
+	volatile uint32_t DUMMY[4];
+	volatile uint32_t ODR;
+} GPIO_Typedef;
+
+#define RCC 	((RCC_Typedef*)RCC_BASE)
+#define GPIOA	((GPIO_Typedef*)GPIOA_BASE)
+
+
+/*
+ * (1U<<10) // Set bit 10 to 1
+ * &=~(1U<<11) // Set bit 11 to 0 */
+
+
+int main(void){
+	/*1. Enable clock access to GPIOA*/
+	RCC->AHB1ENR |= GPIOAEN;
+	/*2. Set PA5 as output pin*/
+	GPIOA->MODER  |= (1U<<10); // Set bit 10 to 1
+	GPIOA->MODER  &=~(1U<<11); // Set bit 11 to 0
+	while(1){
+		/*3. Set PA5 High*/
+		//GPIOA_OD_R |= LED_PIN;
+		/*4. Experiment 2: toggle the LED*/
+		GPIOA->ODR ^= LED_PIN;
+		for(int i=0;i<100000;i++){}
+	}
+}
