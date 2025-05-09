@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Delete 5 resources" deleteContents="false" description="Delete 5 resources" element1="/7_uart_modular/2_gpio_output Debug.launch" element2="/7_uart_modular/3_gpio_bsrr.launch" element3="/7_uart_modular/4_gpio_input Debug.launch" element4="/7_uart_modular/5_uart_tx Debug.launch" element5="/7_uart_modular/6_uart_printf.launch" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="5" stamp="1746788188162"/>
+</session>
